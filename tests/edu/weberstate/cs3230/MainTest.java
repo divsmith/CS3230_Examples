@@ -38,4 +38,10 @@ class MainTest {
     {
         Assertions.assertEquals(10946, Main.countWaysToJump(20));
     }
+
+    @Test
+    void _45_is_correct()
+    {
+        Assertions.assertEquals(1836311903, Main.countWaysToJump(45));
+    }
 }
