@@ -10,6 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class MainTest {
     @Test
+    void negative_returns_negative_one()
+    {
+        Assertions.assertEquals(-1, Main.countWaysToJump(-1));
+    }
+
+    @Test
     void zero_returns_zero()
     {
         Assertions.assertEquals(0, Main.countWaysToJump(0));
