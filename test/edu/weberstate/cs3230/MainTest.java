@@ -39,4 +39,10 @@ class MainTest {
     {
         Assertions.assertEquals("     olleh   dlrow   ", Main.reverseWords("     hello   world   "));
     }
+
+    @Test
+    void long_sentences_are_reversed_correctly()
+    {
+        Assertions.assertEquals("sihT si a tset fo eht eleooT ytnuoC ycnegremE gninraW .metsyS", Main.reverseWords("This is a test of the Tooele County Emergency Warning System."));
+    }
 }
