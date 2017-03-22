@@ -12,7 +12,7 @@ public class Main {
         int wordEnd = 0;
         String returnString = "";
 
-        for (int i = 0; i < words.length() - 1; i++)
+        for (int i = 0; i < words.length(); i++)
         {
             if (words.charAt(i) == ' ')
             {
