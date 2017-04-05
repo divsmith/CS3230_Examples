@@ -41,6 +41,12 @@ class MainTest {
     }
 
     @Test
+    void single_space_at_end_are_preserved()
+    {
+        Assertions.assertEquals("     olleh   dlrow ", Main.reverseWords("     hello   world "));
+    }
+
+    @Test
     void long_sentences_are_reversed_correctly()
     {
         Assertions.assertEquals("sihT si a tset fo eht eleooT ytnuoC ycnegremE gninraW .metsyS", Main.reverseWords("This is a test of the Tooele County Emergency Warning System."));
