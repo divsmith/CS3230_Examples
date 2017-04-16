@@ -27,6 +27,47 @@ class NodeTest {
     }
 
     @Test
+    void addchild_works_correctly()
+    {
+        Node node = new Node();
+        Node child = new Node();
+
+        node.addChild(child);
+
+        List<Main.INode> expected = new ArrayList<Main.INode>();
+        expected.add(child);
+
+        assertEquals(expected, node.getChildren());
+    }
+
+    @Test
+    void addchild_works_correctly_with_multiple_children()
+    {
+        Node node = new Node();
+        Node child1 = new Node();
+        Node child2 = new Node();
+        Node child3 = new Node();
+
+        node.addChild(child1);
+        node.addChild(child2);
+        node.addChild(child3);
+
+        List<Main.INode> expected = new ArrayList<Main.INode>();
+        expected.add(child1);
+        expected.add(child2);
+        expected.add(child3);
+
+        assertEquals(expected, node.getChildren());
+    }
+
+    @Test
+    void returns_null_when_no_children()
+    {
+        Node node = new Node();
+        assertEquals(null, node.getChildren());
+    }
+
+    @Test
     void value_default_value()
     {
         Node node = new Node();

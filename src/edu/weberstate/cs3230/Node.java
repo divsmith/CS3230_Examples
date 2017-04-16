@@ -1,5 +1,6 @@
 package edu.weberstate.cs3230;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,5 +44,15 @@ public class Node implements Main.INode {
     @Override
     public List<Main.INode> getChildren() {
         return this.children;
+    }
+
+    public void addChild(Main.INode child)
+    {
+        if (children == null)
+        {
+            children = new ArrayList<Main.INode>();
+        }
+
+        children.add(child);
     }
 }
