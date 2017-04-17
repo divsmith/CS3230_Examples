@@ -35,6 +35,7 @@ public class Main {
         {
             resultStack.push(workingStack.pop());
 
+            // Check for either null or an empty list
             if (resultStack.peek() != null && resultStack.peek().getChildren() != null && resultStack.peek().getChildren().size() > 0)
             {
                 for (INode node : resultStack.peek().getChildren())
