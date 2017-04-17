@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by parker on 4/16/17.
  */
-class MainTest {
+public class MainTest_EmptyNode {
     @Test
     void empty_tree_returns_empty_list()
     {
@@ -26,7 +26,7 @@ class MainTest {
     {
         Main main = new Main();
 
-        Main.INode node = new NullNode(10);
+        Main.INode node = new EmptyNode(10);
         List<Main.INode> expected = new ArrayList<Main.INode>();
         expected.add(node);
 
@@ -38,8 +38,8 @@ class MainTest {
     {
         Main main = new Main();
 
-        NullNode root = new NullNode(10);
-        NullNode child = new NullNode(5);
+        EmptyNode root = new EmptyNode(10);
+        EmptyNode child = new EmptyNode(5);
 
         root.addChild(child);
 
@@ -55,10 +55,10 @@ class MainTest {
     {
         Main main = new Main();
 
-        NullNode root = new NullNode(10);
-        NullNode child1 = new NullNode(5);
-        NullNode child2 = new NullNode(3);
-        NullNode child3 = new NullNode(17);
+        EmptyNode root = new EmptyNode(10);
+        EmptyNode child1 = new EmptyNode(5);
+        EmptyNode child2 = new EmptyNode(3);
+        EmptyNode child3 = new EmptyNode(17);
 
         root.addChild(child1);
         root.addChild(child2);
@@ -78,9 +78,9 @@ class MainTest {
     {
         Main main = new Main();
 
-        NullNode root = new NullNode(17);
-        NullNode second = new NullNode(3);
-        NullNode third = new NullNode(1);
+        EmptyNode root = new EmptyNode(17);
+        EmptyNode second = new EmptyNode(3);
+        EmptyNode third = new EmptyNode(1);
 
         second.addChild(third);
         root.addChild(second);
@@ -98,13 +98,13 @@ class MainTest {
     {
         Main main = new Main();
 
-        NullNode one = new NullNode(1);
-        NullNode two = new NullNode(2);
-        NullNode three = new NullNode(3);
-        NullNode four = new NullNode(4);
-        NullNode five = new NullNode(5);
-        NullNode six = new NullNode(6);
-        NullNode seven = new NullNode(7);
+        EmptyNode one = new EmptyNode(1);
+        EmptyNode two = new EmptyNode(2);
+        EmptyNode three = new EmptyNode(3);
+        EmptyNode four = new EmptyNode(4);
+        EmptyNode five = new EmptyNode(5);
+        EmptyNode six = new EmptyNode(6);
+        EmptyNode seven = new EmptyNode(7);
 
         one.addChild(two);
         one.addChild(three);
@@ -130,22 +130,22 @@ class MainTest {
     {
         Main main = new Main();
 
-        NullNode one = new NullNode(1);
-        NullNode two = new NullNode(2);
-        NullNode three = new NullNode(3);
-        NullNode four = new NullNode(4);
-        NullNode five = new NullNode(5);
-        NullNode six = new NullNode(6);
-        NullNode seven = new NullNode(7);
-        NullNode eight = new NullNode(8);
-        NullNode nine = new NullNode(9);
-        NullNode ten = new NullNode(10);
-        NullNode eleven = new NullNode(11);
-        NullNode twelve = new NullNode(12);
-        NullNode thirteen = new NullNode(13);
-        NullNode fourteen = new NullNode(14);
-        NullNode fifteen = new NullNode(15);
-        NullNode sixteen = new NullNode(16);
+        EmptyNode one = new EmptyNode(1);
+        EmptyNode two = new EmptyNode(2);
+        EmptyNode three = new EmptyNode(3);
+        EmptyNode four = new EmptyNode(4);
+        EmptyNode five = new EmptyNode(5);
+        EmptyNode six = new EmptyNode(6);
+        EmptyNode seven = new EmptyNode(7);
+        EmptyNode eight = new EmptyNode(8);
+        EmptyNode nine = new EmptyNode(9);
+        EmptyNode ten = new EmptyNode(10);
+        EmptyNode eleven = new EmptyNode(11);
+        EmptyNode twelve = new EmptyNode(12);
+        EmptyNode thirteen = new EmptyNode(13);
+        EmptyNode fourteen = new EmptyNode(14);
+        EmptyNode fifteen = new EmptyNode(15);
+        EmptyNode sixteen = new EmptyNode(16);
 
         one.addChild(two);
         one.addChild(three);
@@ -191,22 +191,21 @@ class MainTest {
 
         List<Main.INode> expected = new ArrayList<>();
 
-        NullNode nullNode = new NullNode(0);
-        NullNode temp;
-        expected.add(nullNode);
+        EmptyNode emptyNode = new EmptyNode(0);
+        EmptyNode temp;
+        expected.add(emptyNode);
 
         for (int i = 1; i < 1000000; i++)
         {
-            temp = new NullNode(i);
-            temp.addChild(nullNode);
+            temp = new EmptyNode(i);
+            temp.addChild(emptyNode);
 
             expected.add(temp);
 
-            nullNode = temp;
+            emptyNode = temp;
         }
 
-        assertEquals(expected, main.traverseTreeInDepth(nullNode));
+        assertEquals(expected, main.traverseTreeInDepth(emptyNode));
 
     }
-
 }
