@@ -16,48 +16,39 @@ public class Main {
         List<INode> getChildren();
     }
 
-    public static List<INode> traverseTreeInDepth(INode node) {
-    /*
-      Please implement this method to
-      traverse the tree in depth and return a list of all passed nodes.
-
-      The method shall work optimally with large trees.
-     */
-
+    public static List<INode> traverseTreeInDepth(INode root) {
         List<INode> results = new ArrayList<INode>();
 
-        Deque<INode> stack = new ArrayDeque<INode>();
+        Deque<INode> workingStack = new ArrayDeque<INode>();
+        Deque<INode> resultStack = new ArrayDeque<INode>();
 
-//        if (node.getChildren().size() > 0)
-//        {
-//            for (int i = node.getChildren().size() - 1; i > 0; i--)
-//            {
-//                stack.push(node.getChildren().get(i));
-//            }
-//        }
-//        else
-//        {
-//
-//        }
-
-        if (node == null)
+        // No node was passed in.
+        // Return empty list.
+        if (root == null)
         {
             return results;
         }
 
-        if (node.getChildren() == null || node.getChildren().size() == 0)
+        workingStack.push(root);
+
+        while (workingStack.size() > 0)
         {
-            results.add(node);
-        }
-        else
-        {
-            for (int i = node.getChildren().size() - 1; i > 0; i--)
+            resultStack.push(workingStack.pop());
+
+            if (resultStack.peek() != null && resultStack.peek().getChildren() != null && resultStack.peek().getChildren().size() > 0)
             {
-                stack.push(node.getChildren().get(i));
+                for (INode node : resultStack.peek().getChildren())
+                {
+                    workingStack.push(node);
+                }
             }
         }
 
+        while (resultStack.size() > 0)
+        {
+            results.add(resultStack.pop());
+        }
 
-        return results;
+       return results;
     }
 }
