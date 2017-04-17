@@ -10,77 +10,77 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Created by parker on 4/16/17.
  */
-class NodeTest {
+class NullNodeTest {
     @Test
     void returns_correct_value()
     {
-        Node node = new Node(7);
-        assertEquals(7, node.getValue());
+        NullNode nullNode = new NullNode(7);
+        assertEquals(7, nullNode.getValue());
     }
 
     @Test
     void setValue_works_correctly()
     {
-        Node node = new Node();
-        node.setValue(10);
-        assertEquals(10, node.getValue());
+        NullNode nullNode = new NullNode();
+        nullNode.setValue(10);
+        assertEquals(10, nullNode.getValue());
     }
 
     @Test
     void addchild_works_correctly()
     {
-        Node node = new Node();
-        Node child = new Node();
+        NullNode nullNode = new NullNode();
+        NullNode child = new NullNode();
 
-        node.addChild(child);
+        nullNode.addChild(child);
 
         List<Main.INode> expected = new ArrayList<Main.INode>();
         expected.add(child);
 
-        assertEquals(expected, node.getChildren());
+        assertEquals(expected, nullNode.getChildren());
     }
 
     @Test
     void addchild_works_correctly_with_multiple_children()
     {
-        Node node = new Node();
-        Node child1 = new Node();
-        Node child2 = new Node();
-        Node child3 = new Node();
+        NullNode nullNode = new NullNode();
+        NullNode child1 = new NullNode();
+        NullNode child2 = new NullNode();
+        NullNode child3 = new NullNode();
 
-        node.addChild(child1);
-        node.addChild(child2);
-        node.addChild(child3);
+        nullNode.addChild(child1);
+        nullNode.addChild(child2);
+        nullNode.addChild(child3);
 
         List<Main.INode> expected = new ArrayList<Main.INode>();
         expected.add(child1);
         expected.add(child2);
         expected.add(child3);
 
-        assertEquals(expected, node.getChildren());
+        assertEquals(expected, nullNode.getChildren());
     }
 
     @Test
     void returns_null_when_no_children()
     {
-        Node node = new Node();
-        assertEquals(null, node.getChildren());
+        NullNode nullNode = new NullNode();
+        assertEquals(null, nullNode.getChildren());
     }
 
     @Test
     void value_default_value()
     {
-        Node node = new Node();
-        assertEquals(-1, node.getValue());
+        NullNode nullNode = new NullNode();
+        assertEquals(-1, nullNode.getValue());
     }
 
     @Test
     void set_get_children_works_for_single_child()
     {
-        Node parent = new Node();
+        NullNode parent = new NullNode();
 
         List<Main.INode> children = new ArrayList<Main.INode>();
-        children.add(new Node(7));
+        children.add(new NullNode(7));
 
         parent.setChildren(children);
 
@@ -90,13 +90,13 @@ class NodeTest {
     @Test
     void set_get_children_works_for_multiple_children()
     {
-        Node parent = new Node();
+        NullNode parent = new NullNode();
 
         List<Main.INode> children = new ArrayList<Main.INode>();
-        children.add(new Node(7));
-        children.add(new Node(8));
-        children.add(new Node(9));
-        children.add(new Node(10));
+        children.add(new NullNode(7));
+        children.add(new NullNode(8));
+        children.add(new NullNode(9));
+        children.add(new NullNode(10));
 
         parent.setChildren(children);
 
@@ -107,12 +107,12 @@ class NodeTest {
     void constructor_works_with_value_and_children()
     {
         List<Main.INode> children = new ArrayList<Main.INode>();
-        children.add(new Node(7));
-        children.add(new Node(8));
-        children.add(new Node(9));
-        children.add(new Node(10));
+        children.add(new NullNode(7));
+        children.add(new NullNode(8));
+        children.add(new NullNode(9));
+        children.add(new NullNode(10));
 
-        Node parent = new Node(20, children);
+        NullNode parent = new NullNode(20, children);
 
         assertEquals(children, parent.getChildren());
         assertEquals(20, parent.getValue());

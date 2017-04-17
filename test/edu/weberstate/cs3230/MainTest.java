@@ -1,6 +1,5 @@
 package edu.weberstate.cs3230;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ class MainTest {
     {
         Main main = new Main();
 
-        Main.INode node = new Node(10);
+        Main.INode node = new NullNode(10);
         List<Main.INode> expected = new ArrayList<Main.INode>();
         expected.add(node);
 
@@ -39,8 +38,8 @@ class MainTest {
     {
         Main main = new Main();
 
-        Node root = new Node(10);
-        Node child = new Node(5);
+        NullNode root = new NullNode(10);
+        NullNode child = new NullNode(5);
 
         root.addChild(child);
 
@@ -56,10 +55,10 @@ class MainTest {
     {
         Main main = new Main();
 
-        Node root = new Node(10);
-        Node child1 = new Node(5);
-        Node child2 = new Node(3);
-        Node child3 = new Node(17);
+        NullNode root = new NullNode(10);
+        NullNode child1 = new NullNode(5);
+        NullNode child2 = new NullNode(3);
+        NullNode child3 = new NullNode(17);
 
         root.addChild(child1);
         root.addChild(child2);
@@ -79,9 +78,9 @@ class MainTest {
     {
         Main main = new Main();
 
-        Node root = new Node(17);
-        Node second = new Node(3);
-        Node third = new Node(1);
+        NullNode root = new NullNode(17);
+        NullNode second = new NullNode(3);
+        NullNode third = new NullNode(1);
 
         second.addChild(third);
         root.addChild(second);
@@ -99,13 +98,13 @@ class MainTest {
     {
         Main main = new Main();
 
-        Node one = new Node(1);
-        Node two = new Node(2);
-        Node three = new Node(3);
-        Node four = new Node(4);
-        Node five = new Node(5);
-        Node six = new Node(6);
-        Node seven = new Node(7);
+        NullNode one = new NullNode(1);
+        NullNode two = new NullNode(2);
+        NullNode three = new NullNode(3);
+        NullNode four = new NullNode(4);
+        NullNode five = new NullNode(5);
+        NullNode six = new NullNode(6);
+        NullNode seven = new NullNode(7);
 
         one.addChild(two);
         one.addChild(three);
@@ -131,22 +130,22 @@ class MainTest {
     {
         Main main = new Main();
 
-        Node one = new Node(1);
-        Node two = new Node(2);
-        Node three = new Node(3);
-        Node four = new Node(4);
-        Node five = new Node(5);
-        Node six = new Node(6);
-        Node seven = new Node(7);
-        Node eight = new Node(8);
-        Node nine = new Node(9);
-        Node ten = new Node(10);
-        Node eleven = new Node(11);
-        Node twelve = new Node(12);
-        Node thirteen = new Node(13);
-        Node fourteen = new Node(14);
-        Node fifteen = new Node(15);
-        Node sixteen = new Node(16);
+        NullNode one = new NullNode(1);
+        NullNode two = new NullNode(2);
+        NullNode three = new NullNode(3);
+        NullNode four = new NullNode(4);
+        NullNode five = new NullNode(5);
+        NullNode six = new NullNode(6);
+        NullNode seven = new NullNode(7);
+        NullNode eight = new NullNode(8);
+        NullNode nine = new NullNode(9);
+        NullNode ten = new NullNode(10);
+        NullNode eleven = new NullNode(11);
+        NullNode twelve = new NullNode(12);
+        NullNode thirteen = new NullNode(13);
+        NullNode fourteen = new NullNode(14);
+        NullNode fifteen = new NullNode(15);
+        NullNode sixteen = new NullNode(16);
 
         one.addChild(two);
         one.addChild(three);
@@ -192,21 +191,21 @@ class MainTest {
 
         List<Main.INode> expected = new ArrayList<>();
 
-        Node node = new Node(0);
-        Node temp;
-        expected.add(node);
+        NullNode nullNode = new NullNode(0);
+        NullNode temp;
+        expected.add(nullNode);
 
         for (int i = 1; i < 1000000; i++)
         {
-            temp = new Node(i);
-            temp.addChild(node);
+            temp = new NullNode(i);
+            temp.addChild(nullNode);
 
             expected.add(temp);
 
-            node = temp;
+            nullNode = temp;
         }
 
-        assertEquals(expected, main.traverseTreeInDepth(node));
+        assertEquals(expected, main.traverseTreeInDepth(nullNode));
 
     }
 

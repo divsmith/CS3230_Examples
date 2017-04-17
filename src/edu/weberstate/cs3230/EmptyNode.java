@@ -6,22 +6,22 @@ import java.util.List;
 /**
  * Created by parker on 4/16/17.
  */
-public class Node implements Main.INode {
+public class EmptyNode implements Main.INode {
     int value = -1;
-    List<Main.INode> children = null;
+    List<Main.INode> children = new ArrayList<Main.INode>();
 
-    public Node(int value, List<Main.INode> children)
+    public EmptyNode(int value, List<Main.INode> children)
     {
         setValue(value);
         setChildren(children);
     }
 
-    public Node(int value)
+    public EmptyNode(int value)
     {
         setValue(value);
     }
 
-    public Node()
+    public EmptyNode()
     {
         setValue(-1);
     }
